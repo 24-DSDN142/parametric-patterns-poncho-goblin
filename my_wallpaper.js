@@ -19,35 +19,36 @@ function wallpaper_background() {
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
-  push()  // Isolates the function from other modifiers
+ 
+  push()  // Isolates the function from other modifiers // Draws an eyeball using draweye Function 
   translate(100,100) // Where am i?
   scale(0.75) // It's honna be 'uge
   rotate(0) // Spin me right round
   draweye(0,0) // keep me 0, 0. (translate handles position)
   pop()
 
-  push()  // Isolates the function from other modifiers
+  push()  // Isolates the function from other modifiers // Draws an eyeball using draweye Function
   translate(55,35) // Where am i?
   scale(0.35) // It's honna be 'uge
   rotate(315) // Spin me right round
   draweye(0,0) // keep me 0, 0. (translate handles position)
   pop()
 
-  push()  // Isolates the function from other modifiers
+  push()  // Isolates the function from other modifiers // Draws an eyeball using draweye Function
   translate(145,35) // Where am i?
   scale(0.35) // It's honna be 'uge
   rotate(45) // Spin me right round
   draweye(0,0) // keep me 0, 0. (translate handles position)
   pop()
 
-  push()  // Isolates the function from other modifiers
+  push()  // Isolates the function from other modifiers // Draws an eyeball using draweye Function
   translate(145,165) // Where am i?
   scale(0.35) // It's honna be 'uge
   rotate(315) // Spin me right round
   draweye(0,0) // keep me 0, 0. (translate handles position)
   pop()
 
-  push()  // Isolates the function from other modifiers
+  push()  // Isolates the function from other modifiers // Draws an eyeball using draweye Function
   translate(55,165) // Where am i?
   scale(0.35) // It's honna be 'uge
   rotate(45) // Spin me right round
