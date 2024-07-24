@@ -4,22 +4,54 @@ let rect_height = 20;
 
 
 function setup_wallpaper(pWallpaper) {
-  pWallpaper.output_mode(DEVELOP_GLYPH);
+  pWallpaper.output_mode(GRID_WALLPAPER);
   pWallpaper.resolution(FIT_TO_SCREEN);
-  pWallpaper.show_guide(true); //set this to false when you're ready to print
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
   pWallpaper.grid_settings.cell_width  = 200;
   pWallpaper.grid_settings.cell_height = 200;
-  pWallpaper.grid_settings.row_offset  = 50;
+  pWallpaper.grid_settings.row_offset  = 0; // Offset between grids
 }
 
 function wallpaper_background() {
-  background(75, 50, 240); //light honeydew green colour
+  background(165, 75, 165); // warm purple 
+  // background(165, 75, 165); // warm purple 
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
- 
+
+// Make me pretty
+noFill();
+strokeWeight (50);
+stroke (100, 45, 100); // Dark Purple
+  
+// This kind works like placing poles in the negative space in order to inform how the line curves
+beginShape ();
+//First Control Point
+curveVertex (-400,-400); //Very high up, Very Far Left. (Kill your landlord)
+// Anchor Points
+curveVertex(200,-25);
+curveVertex(0,225);
+//Secound Control Point
+curveVertex(600,600); // Very low down, Very Far Right. (Something Awful)
+//End me
+endShape ();
+
+noFill();
+strokeWeight (50);
+stroke (100, 45, 100); // Dark Purple
+  
+
+  // I love push pop!!! / The Eyeball Zone
+
+  push()  // Isolates the function from other modifiers // Draws an eyeball using draweye Function 
+  translate(0,0) // Where am i?
+  scale(0.55) // It's honna be 'uge
+  rotate(0) // Spin me right round
+  draweye(0,0) // keep me 0, 0. (translate handles position)
+  pop()
+
   push()  // Isolates the function from other modifiers // Draws an eyeball using draweye Function 
   translate(100,100) // Where am i?
   scale(0.75) // It's honna be 'uge
@@ -58,7 +90,7 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
 
 function draweye(eyex,eyey){ // reducing to a variable allows it to be different in each instance.
   fill(30);
-
+  noStroke();
   beginShape()   // Black Around the Eye
   vertex(eyex-50,eyey) // 75 75 is the 'westmost' point of the eye, and its origin.
   quadraticVertex(eyex,eyey-45, eyex+45,eyey) // 100, 50 is the 'northmost', 125, 75 is the 'eastmost pole' 
