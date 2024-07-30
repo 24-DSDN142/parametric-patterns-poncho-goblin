@@ -1,24 +1,24 @@
 //your parameter variables go here!
 let rect_width  = 20;
 let rect_height = 20;
-let eyex = 0;
-let eyey = 0;
+let eyex; // 
+let eyey; //
 // var wiggle = -25 // changes shape of the lines // tends to work better being increased, rather then decreased // -25
 // var wobble = 0// changes the shape of the lines // tends to work better being increased, rather then decreased // 0
 var EyeOutlineX = 60 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
 var EyeOutlineY = 40 // Min = 30 to be visibile // Controls the height of the outline. // 
 var EyeSquint = 25 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
-let IrisY = EyeSquint-1
+let IrisY = EyeSquint-1 // Controls the Length of the Iris
 let EyeOrientation; 
-let Orientation = 3
+let Orientation = 3 // For storing 'large loudouts' 
 let EyeType = 5 // 1 = Human pupil, 2 = Snake Pupil
-let PupilLength; 
+let PupilLength; // does nothing on its own, used to cap the length of the pupil as part of the DrawEye Function
 
 
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(FIT_TO_SCREEN);
+  pWallpaper.resolution(NINE_LANDSCAPE);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
@@ -28,25 +28,71 @@ function setup_wallpaper(pWallpaper) {
 }
 
 function wallpaper_background() {
-  let wallpaper = color(100,100,100)
+  let wallpaper = color(35,35,35)
   background(wallpaper); // warm purple 
   // background(165, 75, 165); // warm purple 
 }
 
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
 
-  let wallpaper2 = color(75, 75, 75);
-
-  fill(wallpaper2);
-  strokeWeight (10);
-  noStroke (255);
+  let wallpaper2 = color(15, 15, 15);
+  let tlbr = color(65,65,65);
+  let trbl = color(255,100,0);
   
-  triangle(100,100, 0,0, 200,0)
-  triangle(100,100, 0,200, 200,200)
+  function draweye(eyex,eyey){ // reducing to a variable allows it to be different in each instance.
 
-  let tlbr = color(1,1,1,);
-  let trbl = color(50,75,215);
+    let iriscolor = color (255,100,0)
+    let eyeoutlinecolor = color(25, 25, 25)
+    let eyewhitecolor =  color(230, 230, 230)
+
+    // Paste Up to here!
   
+    fill(eyeoutlinecolor); 
+    noStroke();
+    beginShape();   // color Around the Eye
+    vertex(eyex-EyeOutlineX,eyey) // 75 75 is the 'westmost' point of the eye, and its origin.
+    quadraticVertex(eyex,eyey-EyeOutlineY, eyex+EyeOutlineX-5,eyey) // 100, 50 is the 'northmost', 125, 75 is the 'eastmost pole' 
+    quadraticVertex(eyex,eyey+EyeOutlineY, eyex-EyeOutlineX,eyey) // 100, 100 is the 'southmost' pole. and 75, 75 returns us to the 'westmost' origin. 
+    endShape(CLOSE); // This shape is drawn using quadraticVertexes. They work a bit like the pen tool in Illustrator. The line is pulled toward defined poles.
+  
+   fill(eyewhitecolor); 
+   //ellipse(100, 75, 50, 35);
+  
+   beginShape() // White of the eye
+   vertex(eyex-40,eyey) // 75 75 is the 'westmost' point of the eye, and its origin.
+   quadraticVertex(eyex,eyey-EyeSquint, eyex+35,eyey) // 100, 50 is the 'northmost', 125, 75 is the 'eastmost pole' 
+   quadraticVertex(eyex,eyey+EyeSquint, eyex-40,eyey) // 100, 100 is the 'southmost' pole. and 75, 75 returns us to the 'westmost' origin. 
+   endShape(CLOSE) // This shape is drawn using quadraticVertexes. They work a bit like the pen tool in Illustrator. The line is pulled toward defined poles.
+  
+  
+   fill(iriscolor); // Yella
+  
+   ellipse(eyex,eyey, 20, IrisY);
+  
+   if (EyeType == 1){
+    PupilLength = 5
+   }
+    
+   if (EyeType == 2){
+    PupilLength = 20
+   }
+  
+   fill(5);
+   ellipse(eyex,eyey, 5, PupilLength);
+   
+   if(EyeSquint > 20) { // Has the iris remain the same size if the eye opens further then 'deafult' 
+    IrisY = 20
+   }
+    
+   }
+
+   fill(wallpaper2);
+   strokeWeight (10);
+   noStroke (255);
+   
+   triangle(100,100, 0,0, 200,0)
+   triangle(100,100, 0,200, 200,200)
+
   if (Orientation == 1){
 
 noFill(); // Creates the wavy lines. // Top left to bottom right
@@ -122,7 +168,21 @@ pop();
   push()  // Isolates the function from other modifiers // Draws an eyeball using draweye Function 
   translate(100,0) // Where am i?
   scale(1.25) // It's honna be 'uge
-  rotate(0) // Spin me right round
+  rotate(135) // Spin me right round
+  draweye(0,0) // keep me 0, 0. (translate handles position)
+  pop()
+
+  push()  // Isolates the function from other modifiers // Draws an eyeball using draweye Function 
+  translate(40,60) // Where am i?
+  scale(0.5) // It's honna be 'uge
+  rotate(45) // Spin me right round
+  draweye(0,0) // keep me 0, 0. (translate handles position)
+  pop()
+
+  push()  // Isolates the function from other modifiers // Draws an eyeball using draweye Function 
+  translate(160,140) // Where am i?
+  scale(0.5) // It's honna be 'uge
+  rotate(45) // Spin me right round
   draweye(0,0) // keep me 0, 0. (translate handles position)
   pop()
 
@@ -135,7 +195,7 @@ pop();
 
 noFill();
 strokeWeight (50);
-stroke (80, 25, 80); // Dark Purple
+stroke (tlbr); // Dark Purple
 beginShape ();
 curveVertex (200,200);
 curveVertex (-25,-25)
@@ -146,7 +206,7 @@ endShape ();
 // Make me pretty // Curvy Lines
 noFill();
 strokeWeight (50);
-stroke (100, 45, 100); // Dark Purple
+stroke (trbl); // Dark Purple
 
 beginShape();
 //First Control Point
@@ -165,58 +225,22 @@ rotate(0) // Spin me right round
 draweye(0,0) // keep me 0, 0. (translate handles position)
 pop()
 
+push()  // Isolates the function from other modifiers // Draws an eyeball using draweye Function 
+translate(0,100) // Where am i?
+scale(0.65) // It's honna be 'uge
+rotate(0) // Spin me right round
+draweye(0,0) // keep me 0, 0. (translate handles position)
+pop()
+
+// push()  // Isolates the function from other modifiers // Draws an eyeball using draweye Function 
+// translate(200,105) // Where am i?
+// scale(0.65) // It's honna be 'uge
+// rotate(0) // Spin me right round
+// draweye(0,0) // keep me 0, 0. (translate handles position)
+// pop()
+
 
   }
 
 }
 
-function draweye(eyex,eyey){ // reducing to a variable allows it to be different in each instance.
-
-  let iriscolor = color (230, 50, 50)
-  let eyeoutlinecolor = color(25, 25, 25)
-  let eyewhitecolor =  color(230, 230, 230)
-
-  fill(eyeoutlinecolor); 
-  noStroke();
-  beginShape();   // color Around the Eye
-  vertex(eyex-EyeOutlineX,eyey) // 75 75 is the 'westmost' point of the eye, and its origin.
-  quadraticVertex(eyex,eyey-EyeOutlineY, eyex+EyeOutlineX-5,eyey) // 100, 50 is the 'northmost', 125, 75 is the 'eastmost pole' 
-  quadraticVertex(eyex,eyey+EyeOutlineY, eyex-EyeOutlineX,eyey) // 100, 100 is the 'southmost' pole. and 75, 75 returns us to the 'westmost' origin. 
-  endShape(CLOSE); // This shape is drawn using quadraticVertexes. They work a bit like the pen tool in Illustrator. The line is pulled toward defined poles.
-
- fill(eyewhitecolor); 
- //ellipse(100, 75, 50, 35);
-
- beginShape() // White of the eye
- vertex(eyex-40,eyey) // 75 75 is the 'westmost' point of the eye, and its origin.
- quadraticVertex(eyex,eyey-EyeSquint, eyex+35,eyey) // 100, 50 is the 'northmost', 125, 75 is the 'eastmost pole' 
- quadraticVertex(eyex,eyey+EyeSquint, eyex-40,eyey) // 100, 100 is the 'southmost' pole. and 75, 75 returns us to the 'westmost' origin. 
- endShape(CLOSE) // This shape is drawn using quadraticVertexes. They work a bit like the pen tool in Illustrator. The line is pulled toward defined poles.
-
-
- fill(iriscolor); // Yella
-
- ellipse(eyex,eyey, 20, IrisY);
-
- if (EyeType == 1){
-  PupilLength = 5
- }
-  
- if (EyeType == 2){
-  PupilLength = 20
- }
-
- fill(5);
- ellipse(eyex,eyey, 5, PupilLength);
- 
- if(EyeSquint > 20) { // Has the iris remain the same size if the eye opens further then 'deafult' 
-  IrisY = 20
- }
-
-
-
-
- 
-
-
-}
