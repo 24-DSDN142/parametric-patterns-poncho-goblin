@@ -7,12 +7,13 @@ let eyey; //
 // var wobble = 0// changes the shape of the lines // tends to work better being increased, rather then decreased // 0
 var EyeOutlineX = 50 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
 var EyeOutlineY = 40 // Min = 30 to be visibile // Controls the height of the outline. // 
-var EyeSquint = 15 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
-let IrisY = EyeSquint+3 // Controls the Length of the Iris
+var EyeSquint = 40 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
+let IrisY = EyeSquint-1 // Controls the Length of the Iris
 let EyeOrientation; 
 let Orientation = 2 // For storing 'large loudouts' 
 let EyeType = 2 // 1 = Human pupil, 2 = Snake Pupil
 let PupilLength; // does nothing on its own, used to cap the length of the pupil as part of the DrawEye Function
+let PupilColor;
 
 
 
@@ -28,7 +29,7 @@ function setup_wallpaper(pWallpaper) {
 }
 
 function wallpaper_background() {
-  let wallpaper = color(35,35,35)
+  let wallpaper = color(210,150,0)
   background(wallpaper); // warm purple 
   // background(165, 75, 165); // warm purple 
 }
@@ -36,14 +37,15 @@ function wallpaper_background() {
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
 
   let wallpaper2 = color(15, 15, 15);
-  let tlbr = color(65,65,65);
-  let trbl = color(255,100,0);
+  let tlbr = color(190,190,150);
+  let trbl = color(0,0,0);
   
   function draweye(eyex,eyey){ // reducing to a variable allows it to be different in each instance.
 
-    let iriscolor = color (255,100,0)
-    let eyeoutlinecolor = color(25, 25, 25)
-    let eyewhitecolor =  color(230, 230, 230)
+    let iriscolor = color (30,30,30)
+    let eyeoutlinecolor = color(15, 15, 15)
+    let eyewhitecolor =  color(210,150,0)
+    let PupilColor = color(210,150,0)
 
     // Paste Up to here!
   
@@ -74,10 +76,16 @@ function my_symbol() { // do not rename this function. Treat this similarly to a
    }
     
    if (EyeType == 2){
+    PupilLength = EyeSquint+1
+   }
+
+   if(PupilLength > 20){
     PupilLength = 20
    }
+
   
-   fill(5);
+  
+   fill(PupilColor);
    ellipse(eyex,eyey, 5, PupilLength);
    
    if(EyeSquint > 20) { // Has the iris remain the same size if the eye opens further then 'deafult' 
