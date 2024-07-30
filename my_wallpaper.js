@@ -5,13 +5,13 @@ let eyex; //
 let eyey; //
 // var wiggle = -25 // changes shape of the lines // tends to work better being increased, rather then decreased // -25
 // var wobble = 0// changes the shape of the lines // tends to work better being increased, rather then decreased // 0
-var EyeOutlineX = 60 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
+var EyeOutlineX = 50 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
 var EyeOutlineY = 40 // Min = 30 to be visibile // Controls the height of the outline. // 
-var EyeSquint = 25 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
-let IrisY = EyeSquint-1 // Controls the Length of the Iris
+var EyeSquint = 15 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
+let IrisY = EyeSquint+3 // Controls the Length of the Iris
 let EyeOrientation; 
-let Orientation = 3 // For storing 'large loudouts' 
-let EyeType = 5 // 1 = Human pupil, 2 = Snake Pupil
+let Orientation = 2 // For storing 'large loudouts' 
+let EyeType = 2 // 1 = Human pupil, 2 = Snake Pupil
 let PupilLength; // does nothing on its own, used to cap the length of the pupil as part of the DrawEye Function
 
 
