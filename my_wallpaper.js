@@ -1,3 +1,4 @@
+
 //your parameter variables go here!
 let rect_width  = 20;
 let rect_height = 20;
@@ -5,21 +6,19 @@ let eyex; //
 let eyey; //
 // var wiggle = -25 // changes shape of the lines // tends to work better being increased, rather then decreased // -25
 // var wobble = 0// changes the shape of the lines // tends to work better being increased, rather then decreased // 0
-var EyeOutlineX = 50 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
+var EyeOutlineX = 45 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
 var EyeOutlineY = 40 // Min = 30 to be visibile // Controls the height of the outline. // 
-var EyeSquint = 40 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
+var EyeSquint = 18 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
 let IrisY = EyeSquint-1 // Controls the Length of the Iris
-let EyeOrientation; 
 let Orientation = 2 // For storing 'large loudouts' 
 let EyeType = 2 // 1 = Human pupil, 2 = Snake Pupil
 let PupilLength; // does nothing on its own, used to cap the length of the pupil as part of the DrawEye Function
 let PupilColor;
 
 
-
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
-  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.resolution(A3);
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
@@ -29,7 +28,7 @@ function setup_wallpaper(pWallpaper) {
 }
 
 function wallpaper_background() {
-  let wallpaper = color(210,150,0)
+  let wallpaper = color(245,105,0);
   background(wallpaper); // warm purple 
   // background(165, 75, 165); // warm purple 
 }
@@ -37,15 +36,16 @@ function wallpaper_background() {
 function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
 
   let wallpaper2 = color(15, 15, 15);
-  let tlbr = color(190,190,150);
-  let trbl = color(0,0,0);
+  let tlbr = color(35,35,35); // Top left bottom right 
+  let trbl = color(35,35,35); // top right bottom left
+  
   
   function draweye(eyex,eyey){ // reducing to a variable allows it to be different in each instance.
 
-    let iriscolor = color (30,30,30)
-    let eyeoutlinecolor = color(15, 15, 15)
-    let eyewhitecolor =  color(210,150,0)
-    let PupilColor = color(210,150,0)
+    let iriscolor = color (255,100,255)
+    let eyeoutlinecolor = color(25, 25, 25)
+    let eyewhitecolor =  color(230, 230, 230)
+    let PupilColor = color(5);
 
     // Paste Up to here!
   
@@ -163,14 +163,10 @@ pop();
 
   } else if (Orientation == 2) {
   noFill(); // Creates the wavy lines. // Top left to bottom right
-  strokeWeight (25);
-  stroke (tlbr); // Dark Purple
-  beginShape ();
-  endShape ();
-  // Make me pretty // Curvy Lines // Top right to Bottom Left 
-  noFill();
   strokeWeight (15);
-  stroke (trbl); // 
+  stroke (tlbr); // Dark Purple
+  // Make me pretty // Curvy Lines // Top right to Bottom Left 
+  
   // This kind works like placing poles in the negative space in order to inform how the line curves
   
   push()  // Isolates the function from other modifiers // Draws an eyeball using draweye Function 
@@ -196,6 +192,10 @@ pop();
 
  curve(0,0,0,0,100,100,800,-100)
  curve(200,200,200,200,100,100,-600,300)
+
+ noFill();
+ strokeWeight (15);
+ stroke (trbl); // 
 
  line(200,0,0,200)
 
