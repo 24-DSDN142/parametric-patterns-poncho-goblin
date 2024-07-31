@@ -9,14 +9,22 @@ Your final settings.txt will look something like this when you are finished:
 
 Wallpaper 1:
 
-//your parameter variables go here!
+///your parameter variables go here!
 let rect_width  = 20;
 let rect_height = 20;
-let paramter1 = 10;
-let paramter2 = true;
-let paramter3 = 50; 
-let paramter4 = 0; 
-let paramter5 = 60;
+let eyex; // 
+let eyey; //
+// var wiggle = -25 // changes shape of the lines // tends to work better being increased, rather then decreased // -25
+// var wobble = 0// changes the shape of the lines // tends to work better being increased, rather then decreased // 0
+var EyeOutlineX = 60 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
+var EyeOutlineY = 40 // Min = 30 to be visibile // Controls the height of the outline. // 
+var EyeSquint = 25 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
+let IrisY = EyeSquint-1 // Controls the Length of the Iris
+let Orientation = 3 // For storing 'large loudouts' 
+let EyeType = 1 // 1 = Human pupil, 2 = Snake Pupil
+let PupilLength; // does nothing on its own, used to cap the length of the pupil as part of the DrawEye Function
+let PupilColor;
+
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
@@ -24,23 +32,51 @@ function setup_wallpaper(pWallpaper) {
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
-  pWallpaper.grid_settings.row_offset  = 50;
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0; // Offset between grids
 }
 
-/////////////////////////////////
+function wallpaper_background() {
+  let wallpaper = color(35,35,35)
+  background(wallpaper); // warm purple 
+  // background(165, 75, 165); // warm purple 
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+  let wallpaper2 = color(15, 15, 15);
+  let tlbr = color(65,65,65);
+  let trbl = color(255,100,0);
+  
+  
+  function draweye(eyex,eyey){ // reducing to a variable allows it to be different in each instance.
+
+    let iriscolor = color (255,100,0)
+    let eyeoutlinecolor = color(25, 25, 25)
+    let eyewhitecolor =  color(230, 230, 230)
+    let PupilColor = color(5)
+
+    // Paste Up to here!
 
 Wallpaper 2:
 
 //your parameter variables go here!
-let rect_width  = 10;
-let rect_height = 10;
-let paramter1 = 20;
-let paramter2 = false;
-let paramter3 = 50; 
-let paramter4 = 80; 
-let paramter5 = 30;
+let rect_width  = 20;
+let rect_height = 20;
+let eyex; // 
+let eyey; //
+// var wiggle = -25 // changes shape of the lines // tends to work better being increased, rather then decreased // -25
+// var wobble = 0// changes the shape of the lines // tends to work better being increased, rather then decreased // 0
+var EyeOutlineX = 60 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
+var EyeOutlineY = 40 // Min = 30 to be visibile // Controls the height of the outline. // 
+var EyeSquint = 25 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
+let IrisY = EyeSquint-1 // Controls the Length of the Iris
+let Orientation = 2 // For storing 'large loudouts' 
+let EyeType = 1 // 1 = Human pupil, 2 = Snake Pupil
+let PupilLength; // does nothing on its own, used to cap the length of the pupil as part of the DrawEye Function
+let PupilColor;
+
 
 function setup_wallpaper(pWallpaper) {
   pWallpaper.output_mode(GRID_WALLPAPER);
@@ -48,7 +84,389 @@ function setup_wallpaper(pWallpaper) {
   pWallpaper.show_guide(false); //set this to false when you're ready to print
 
   //Grid settings
-  pWallpaper.grid_settings.cell_width  = 100;
-  pWallpaper.grid_settings.cell_height = 100;
-  pWallpaper.grid_settings.row_offset  = 0;
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0; // Offset between grids
 }
+
+function wallpaper_background() {
+  let wallpaper = color(35,35,35)
+  background(wallpaper); // warm purple 
+  // background(165, 75, 165); // warm purple 
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+  let wallpaper2 = color(15, 15, 15);
+  let tlbr = color(255,100,0);
+  let trbl = color(255,100,0);
+  
+  
+  function draweye(eyex,eyey){ // reducing to a variable allows it to be different in each instance.
+
+    let iriscolor = color (255,100,0)
+    let eyeoutlinecolor = color(25, 25, 25)
+    let eyewhitecolor =  color(230, 230, 230)
+    let PupilColor = color(5);
+
+    // Paste Up to here!
+
+Wallpaper 3: 
+
+//your parameter variables go here!
+let rect_width  = 20;
+let rect_height = 20;
+let eyex; // 
+let eyey; //
+// var wiggle = -25 // changes shape of the lines // tends to work better being increased, rather then decreased // -25
+// var wobble = 0// changes the shape of the lines // tends to work better being increased, rather then decreased // 0
+var EyeOutlineX = 60 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
+var EyeOutlineY = 40 // Min = 30 to be visibile // Controls the height of the outline. // 
+var EyeSquint = 25 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
+let IrisY = EyeSquint-1 // Controls the Length of the Iris
+let Orientation = 1 // For storing 'large loudouts' 
+let EyeType = 1 // 1 = Human pupil, 2 = Snake Pupil
+let PupilLength; // does nothing on its own, used to cap the length of the pupil as part of the DrawEye Function
+let PupilColor; 
+
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0; // Offset between grids
+}
+
+function wallpaper_background() {
+  let wallpaper = color(35,35,35)
+  background(wallpaper); // warm purple 
+  // background(165, 75, 165); // warm purple 
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+  let wallpaper2 = color(15, 15, 15);
+  let tlbr = color(65,65,65);
+  let trbl = color(255,100,0);
+  
+  
+  function draweye(eyex,eyey){ // reducing to a variable allows it to be different in each instance.
+
+    let iriscolor = color (255,100,0)
+    let eyeoutlinecolor = color(25, 25, 25)
+    let eyewhitecolor =  color(230, 230, 230)
+    let PupilColor = color(5); 
+
+    // Paste Up to here!
+
+    Wallpaper 4: 
+
+
+let rect_width  = 20;
+let rect_height = 20;
+let eyex; // 
+let eyey; //
+// var wiggle = -25 // changes shape of the lines // tends to work better being increased, rather then decreased // -25
+// var wobble = 0// changes the shape of the lines // tends to work better being increased, rather then decreased // 0
+var EyeOutlineX = 50 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
+var EyeOutlineY = 40 // Min = 30 to be visibile // Controls the height of the outline. // 
+var EyeSquint = 10 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
+let IrisY = EyeSquint-1 // Controls the Length of the Iris
+let Orientation = 2 // For storing 'large loudouts' 
+let EyeType = 2 // 1 = Human pupil, 2 = Snake Pupil
+let PupilLength; // does nothing on its own, used to cap the length of the pupil as part of the DrawEye Function
+let PupilColor;
+
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0; // Offset between grids
+}
+
+function wallpaper_background() {
+  let wallpaper = color(35,35,35)
+  background(wallpaper); // warm purple 
+  // background(165, 75, 165); // warm purple 
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+  let wallpaper2 = color(15, 15, 15);
+  let tlbr = color(0,0,0);
+  let trbl = color(0,0,0);
+  
+  
+  function draweye(eyex,eyey){ // reducing to a variable allows it to be different in each instance.
+
+    let iriscolor = color (255,200,0)
+    let eyeoutlinecolor = color(25, 25, 25)
+    let eyewhitecolor =  color(230, 230, 230)
+    let PupilColor = color(5);
+
+    // Paste Up to here!
+
+    Wallpaper 5:
+    //your parameter variables go here!
+let rect_width  = 20;
+let rect_height = 20;
+let eyex; // 
+let eyey; //
+// var wiggle = -25 // changes shape of the lines // tends to work better being increased, rather then decreased // -25
+// var wobble = 0// changes the shape of the lines // tends to work better being increased, rather then decreased // 0
+var EyeOutlineX = 50 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
+var EyeOutlineY = 40 // Min = 30 to be visibile // Controls the height of the outline. // 
+var EyeSquint = 40 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
+let IrisY = EyeSquint-1 // Controls the Length of the Iris
+let Orientation = 3 // For storing 'large loudouts' 
+let EyeType = 2 // 1 = Human pupil, 2 = Snake Pupil
+let PupilLength; // does nothing on its own, used to cap the length of the pupil as part of the DrawEye Function
+let PupilColor;
+
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0; // Offset between grids
+}
+
+function wallpaper_background() {
+  let wallpaper = color(75,0,45)
+  background(wallpaper); // warm purple 
+  // background(165, 75, 165); // warm purple 
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+  let wallpaper2 = color(15, 15, 15);
+  let tlbr = color(110,20,145);
+  let trbl = color(0,0,0);
+  
+  
+  function draweye(eyex,eyey){ // reducing to a variable allows it to be different in each instance.
+
+    let iriscolor = color (255,50,150)
+    let eyeoutlinecolor = color(25, 25, 25)
+    let eyewhitecolor =  color(230, 230, 230)
+    let PupilColor = color(5);
+
+    // Paste Up to here!
+
+    Wallpaper 6:
+
+    //your parameter variables go here!
+let rect_width  = 20;
+let rect_height = 20;
+let eyex; // 
+let eyey; //
+// var wiggle = -25 // changes shape of the lines // tends to work better being increased, rather then decreased // -25
+// var wobble = 0// changes the shape of the lines // tends to work better being increased, rather then decreased // 0
+var EyeOutlineX = 50 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
+var EyeOutlineY = 40 // Min = 30 to be visibile // Controls the height of the outline. // 
+var EyeSquint = 40 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
+let IrisY = EyeSquint-1 // Controls the Length of the Iris
+let Orientation = 3 // For storing 'large loudouts' 
+let EyeType = 2 // 1 = Human pupil, 2 = Snake Pupil
+let PupilLength; // does nothing on its own, used to cap the length of the pupil as part of the DrawEye Function
+let PupilColor; 
+
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0; // Offset between grids
+}
+
+function wallpaper_background() {
+  let wallpaper = color(45,45,45)
+  background(wallpaper); // warm purple 
+  // background(165, 75, 165); // warm purple 
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+  let wallpaper2 = color(15, 15, 15);
+  let tlbr = color(190,190,150);
+  let trbl = color(0,0,0);
+  
+  
+  function draweye(eyex,eyey){ // reducing to a variable allows it to be different in each instance.
+
+    let iriscolor = color (255,50,150)
+    let eyeoutlinecolor = color(15, 15, 15)
+    let eyewhitecolor =  color(30, 30, 30)
+    let PupilColor = color(5);
+
+    // Paste Up to here!
+
+    Wallpaper 7:
+    //your parameter variables go here!
+let rect_width  = 20;
+let rect_height = 20;
+let eyex; // 
+let eyey; //
+// var wiggle = -25 // changes shape of the lines // tends to work better being increased, rather then decreased // -25
+// var wobble = 0// changes the shape of the lines // tends to work better being increased, rather then decreased // 0
+var EyeOutlineX = 50 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
+var EyeOutlineY = 40 // Min = 30 to be visibile // Controls the height of the outline. // 
+var EyeSquint = 40 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
+let IrisY = EyeSquint-1 // Controls the Length of the Iris
+let Orientation = 2 // For storing 'large loudouts' 
+let EyeType = 2 // 1 = Human pupil, 2 = Snake Pupil
+let PupilLength; // does nothing on its own, used to cap the length of the pupil as part of the DrawEye Function
+let PupilColor;
+
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0; // Offset between grids
+}
+
+function wallpaper_background() {
+  let wallpaper = color(45,0,45)
+  background(wallpaper); // warm purple 
+  // background(165, 75, 165); // warm purple 
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+  let wallpaper2 = color(15, 15, 15);
+  let tlbr = color(190,190,150);
+  let trbl = color(0,0,0);
+  
+  
+  function draweye(eyex,eyey){ // reducing to a variable allows it to be different in each instance.
+
+    let iriscolor = color (255,50,150)
+    let eyeoutlinecolor = color(15, 15, 15)
+    let eyewhitecolor =  color(30, 30, 30)
+    let PupilColor = color(5); 
+
+    // Paste Up to here!
+
+    Wallpaper 8 :
+    //your parameter variables go here!
+let rect_width  = 20;
+let rect_height = 20;
+let eyex; // 
+let eyey; //
+// var wiggle = -25 // changes shape of the lines // tends to work better being increased, rather then decreased // -25
+// var wobble = 0// changes the shape of the lines // tends to work better being increased, rather then decreased // 0
+var EyeOutlineX = 50 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
+var EyeOutlineY = 40 // Min = 30 to be visibile // Controls the height of the outline. // 
+var EyeSquint = 40 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
+let IrisY = EyeSquint-1 // Controls the Length of the Iris
+let Orientation = 1 // For storing 'large loudouts' 
+let EyeType = 2 // 1 = Human pupil, 2 = Snake Pupil
+let PupilLength; // does nothing on its own, used to cap the length of the pupil as part of the DrawEye Function
+let PuplColor;
+
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 75;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0; // Offset between grids
+}
+
+function wallpaper_background() {
+  let wallpaper = color(45,0,45)
+  background(wallpaper); // warm purple 
+  // background(165, 75, 165); // warm purple 
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+  let wallpaper2 = color(15, 15, 15);
+  let tlbr = color(190,190,150);
+  let trbl = color(0,0,0);
+  
+  function draweye(eyex,eyey){ // reducing to a variable allows it to be different in each instance.
+
+    let iriscolor = color (255,50,150)
+    let eyeoutlinecolor = color(15, 15, 15)
+    let eyewhitecolor =  color(30, 30, 30)
+    let PupilColor = color(5);
+
+    // Paste Up to here!
+
+    Wallpaper 9: 
+
+//your parameter variables go here!
+let rect_width  = 20;
+let rect_height = 20;
+let eyex; // 
+let eyey; //
+// var wiggle = -25 // changes shape of the lines // tends to work better being increased, rather then decreased // -25
+// var wobble = 0// changes the shape of the lines // tends to work better being increased, rather then decreased // 0
+var EyeOutlineX = 50 // Min = 45 to be visible // Controls the width of the outline, increase by about 10 or so for a more 'feminine' look
+var EyeOutlineY = 40 // Min = 30 to be visibile // Controls the height of the outline. // 
+var EyeSquint = 40 // How wide the eye is // Beyond about 50 ~ stops looking like an eye. // smaller = squinting more
+let IrisY = EyeSquint-1 // Controls the Length of the Iris
+let Orientation = 2 // For storing 'large loudouts' 
+let EyeType = 2 // 1 = Human pupil, 2 = Snake Pupil
+let PupilLength; // does nothing on its own, used to cap the length of the pupil as part of the DrawEye Function
+let PupilColor;
+
+
+
+function setup_wallpaper(pWallpaper) {
+  pWallpaper.output_mode(GRID_WALLPAPER);
+  pWallpaper.resolution(NINE_LANDSCAPE);
+  pWallpaper.show_guide(false); //set this to false when you're ready to print
+
+  //Grid settings
+  pWallpaper.grid_settings.cell_width  = 200;
+  pWallpaper.grid_settings.cell_height = 200;
+  pWallpaper.grid_settings.row_offset  = 0; // Offset between grids
+}
+
+function wallpaper_background() {
+  let wallpaper = color(210,150,0)
+  background(wallpaper); // warm purple 
+  // background(165, 75, 165); // warm purple 
+}
+
+function my_symbol() { // do not rename this function. Treat this similarly to a Draw function
+
+  let wallpaper2 = color(15, 15, 15);
+  let tlbr = color(190,190,150);
+  let trbl = color(0,0,0);
+  
+  function draweye(eyex,eyey){ // reducing to a variable allows it to be different in each instance.
+
+    let iriscolor = color (30,30,30)
+    let eyeoutlinecolor = color(15, 15, 15)
+    let eyewhitecolor =  color(210,150,0)
+    let PupilColor = color(210,150,0)
+
+    // Paste Up to here!
